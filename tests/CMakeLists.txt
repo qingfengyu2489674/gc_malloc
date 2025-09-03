@@ -2,13 +2,13 @@
 
 # 创建一个名为 "run_tests" 的可执行文件
 add_executable(run_tests
-    test_calculator.cpp
+    test_mman.cpp
 )
 
-# 链接测试程序。它需要链接我们自己的库 (mylib) 和 GoogleTest (gtest_main)
+# 链接测试程序。它需要链接我们自己的库 (gc_malloc) 和 GoogleTest (gtest_main)
 # gtest_main 已经包含了 main 函数，非常方便
 target_link_libraries(run_tests PRIVATE
-    mylib
+    gc_malloc
     gtest_main
 )
 
