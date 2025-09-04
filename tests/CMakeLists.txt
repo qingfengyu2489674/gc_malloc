@@ -3,6 +3,7 @@
 # 创建一个名为 "run_tests" 的可执行文件
 add_executable(run_tests
     test_mman.cpp
+    test_MetadataAllocor.cpp
 )
 
 # 链接测试程序。它需要链接我们自己的库 (gc_malloc) 和 GoogleTest (gtest_main)

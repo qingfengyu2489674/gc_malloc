@@ -7,8 +7,9 @@ extern "C" {
 
 #include <stddef.h>
 #include <sys/types.h>
-#include <sys/syscall.h>
-#include <sys/syscall.hpp> 
+#include <sys/syscall.h> 
+
+#include "gc_malloc/sys/syscall.hpp" 
 
 #define PROT_READ       0x1
 #define PROT_WRITE      0x2

@@ -3,7 +3,7 @@
 #include <cstring>
 #include <system_error>
 
-#include <sys/mman.hpp>
+#include "gc_malloc/sys/mman.hpp"
 
 class MmanWrapperTest : public ::testing::Test {
 protected:
