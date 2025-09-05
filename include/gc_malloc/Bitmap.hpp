@@ -3,10 +3,8 @@
 
 #include <cstddef>
 #include <climits>
-#include <vector> // 使用 vector 管理内存更安全
+#include <vector>
 
-namespace gc_malloc {
-namespace utils {
 
 class Bitmap {
 public:
@@ -22,7 +20,6 @@ private:
     std::vector<unsigned char> map_;
 };
 
-} // namespace utils
-} // namespace gc_malloc
+
 
 #endif // GC_MALLOC_BITMAP_H

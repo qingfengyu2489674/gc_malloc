@@ -1,6 +1,6 @@
 #include "gc_malloc/MetadataAllocor.hpp"
 #include "gc_malloc/PageGroup.hpp"
-#include "gc_malloc/sys/mman.hpp"
+#include "gc_malloc/AlignedMmapper.hpp"
 
 #include <cassert> 
 
@@ -81,20 +81,7 @@ void MetadataAllocor::deallocate(void* ptr, size_t size) {
 
 bool MetadataAllocor::refill_free_list() {
 
-    void* new_chunk_mem = mmap(
-        nullptr,                      // addr: 让内核选择地址
-        kChunkSize,                   // length: 1MB
-        PROT_READ | PROT_WRITE,       // prot: 内存页可读可写
-        MAP_PRIVATE | MAP_ANONYMOUS,  // flags: 私有、匿名映射（不关联文件）
-        -1,                           // fd: 文件描述符，匿名映射时为-1
-        0                             // offset: 文件偏移，匿名映射时为0
-    );
-
-
-    if (new_chunk_mem == MAP_FAILED) {
-        // 在实际项目中，这里可能需要记录严重错误日志。
-        return false;
-    }
+    void* new_chunk_mem = AlignedMmapper::allocate_aligned(kChunkSize);
 
     chunks_acquired_++;
 

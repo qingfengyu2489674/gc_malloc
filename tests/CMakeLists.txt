@@ -4,6 +4,7 @@
 add_executable(run_tests
     test_mman.cpp
     test_MetadataAllocor.cpp
+    test_Bitmap.cpp
 )
 
 # 链接测试程序。它需要链接我们自己的库 (gc_malloc) 和 GoogleTest (gtest_main)

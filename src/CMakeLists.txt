@@ -3,6 +3,8 @@
 # 将 calculator.cpp 编译成一个名为 "gc_malloc" 的静态库
 add_library(gc_malloc STATIC
     MetadataAllocor.cpp
+    Bitmap.cpp
+    AlignedMmapper.cpp
 )
 
 # 告诉 CMake 这个库的头文件在哪里。
