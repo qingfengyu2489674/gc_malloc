@@ -13,7 +13,7 @@ public:
     PageGroup* acquire_pages(size_t num_pages);
     void release_pages(PageGroup* group);
 
-private:
+public:
     // ================== 核心常量 ==================
     static constexpr size_t kPageSize = 4 * 1024;
     static constexpr size_t kPagesPerMmap = 256;
