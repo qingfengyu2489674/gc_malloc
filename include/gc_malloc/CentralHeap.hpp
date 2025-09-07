@@ -27,10 +27,9 @@ private:
         
         size_t page_count;
     };
-
-    void try_merge(void* start_address, size_t num_pages);
-
-    void* fetch_from_free_lists(size_t num_pages);
+    
+    void reclaim_pages_unlocked(void* start_address, size_t num_pages);
+    void* fetch_from_free_lists_unlocked(size_t num_pages);
 
 private:
     static constexpr size_t kPagesPerMmap = 256;

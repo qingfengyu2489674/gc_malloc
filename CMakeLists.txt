@@ -8,6 +8,14 @@ project(CppProjectTemplate LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 设置默认构建类型为 Debug，或者确保在配置时选择 Debug
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+# 为 Debug 构建模式添加 -g 标志
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+
 # 2. 启用测试
 # 这一行告诉 CMake，这个项目包含测试，之后可以用 ctest 命令运行
 enable_testing()

@@ -6,11 +6,11 @@
 
 struct PageGroup;
 
-class MetadataAllocor {
+class MetadataAllocator {
 
 public:
 
-    static MetadataAllocor& GetInstance();
+    static MetadataAllocator& GetInstance();
 
     // 内部设计是高度特化的，size参数并无作用，这里保留只是为了接口统一性
     void* allocate(size_t size);
@@ -19,10 +19,10 @@ public:
     
 private:
 
-    MetadataAllocor();
-    ~MetadataAllocor();
-    MetadataAllocor(const MetadataAllocor&) = delete;
-    MetadataAllocor& operator=(const MetadataAllocor&) = delete;
+    MetadataAllocator();
+    ~MetadataAllocator();
+    MetadataAllocator(const MetadataAllocator&) = delete;
+    MetadataAllocator& operator=(const MetadataAllocator&) = delete;
 
     bool refill_free_list();
 

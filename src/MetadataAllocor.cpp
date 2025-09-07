@@ -8,9 +8,9 @@
 // 单例模式实现 (Singleton Implementation)
 // =====================================================================
 
-MetadataAllocor& MetadataAllocor::GetInstance() {
+MetadataAllocator& MetadataAllocator::GetInstance() {
     // C++11 保证了静态局部变量的初始化是线程安全的
-    static MetadataAllocor instance;
+    static MetadataAllocator instance;
     return instance;
 }
 
@@ -18,11 +18,11 @@ MetadataAllocor& MetadataAllocor::GetInstance() {
 // 构造与析构 (Constructor & Destructor)
 // =====================================================================
 
-MetadataAllocor::MetadataAllocor() {
+MetadataAllocator::MetadataAllocator() {
     // 构造置空
 }
 
-MetadataAllocor::~MetadataAllocor() {
+MetadataAllocator::~MetadataAllocator() {
     // 析构置空
     // 如果未来需要归还mmap出的内存，逻辑将写在这里。
 }
@@ -32,7 +32,7 @@ MetadataAllocor::~MetadataAllocor() {
 // 公共接口实现 (Public API Implementation)
 // =====================================================================
 
-void* MetadataAllocor::allocate(size_t size) {
+void* MetadataAllocator::allocate(size_t size) {
 
     assert(size == sizeof (PageGroup));     // 确保调用者请求正确的大小
     (void)size;                             // 消除“未使用参数”的警告
@@ -56,7 +56,7 @@ void* MetadataAllocor::allocate(size_t size) {
     return block_to_return;
 }
 
-void MetadataAllocor::deallocate(void* ptr, size_t size) {
+void MetadataAllocator::deallocate(void* ptr, size_t size) {
 
     assert(size == sizeof(PageGroup));
     (void)size;
@@ -79,7 +79,7 @@ void MetadataAllocor::deallocate(void* ptr, size_t size) {
 // 私有辅助函数实现 (Private Helper Implementation)
 // =====================================================================
 
-bool MetadataAllocor::refill_free_list() {
+bool MetadataAllocator::refill_free_list() {
 
     void* new_chunk_mem = AlignedMmapper::allocate_aligned(kChunkSize);
 

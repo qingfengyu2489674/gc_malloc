@@ -5,6 +5,7 @@ add_library(gc_malloc STATIC
     MetadataAllocor.cpp
     Bitmap.cpp
     AlignedMmapper.cpp
+    CentralHeap.cpp
 )
 
 # 告诉 CMake 这个库的头文件在哪里。

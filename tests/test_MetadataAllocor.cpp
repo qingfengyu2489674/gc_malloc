@@ -17,7 +17,7 @@ protected:
     // SetUp() 会在每个 TEST_F 测试用例运行前被调用
     void SetUp() override {
         // 在这里可以进行一些每个测试都需要的前置准备工作
-        // 对于 MetadataAllocor 这个单例，通常不需要特别的 SetUp
+        // 对于 MetadataAllocator 这个单例，通常不需要特别的 SetUp
     }
 
     // TearDown() 会在每个 TEST_F 测试用例运行后被调用
@@ -26,7 +26,7 @@ protected:
     }
 
     // 获取对单例的引用，方便书写
-    MetadataAllocor& alloc_ = MetadataAllocor::GetInstance();
+    MetadataAllocator& alloc_ = MetadataAllocator::GetInstance();
     const size_t kBlockSize = sizeof(PageGroup);
 };
 
