@@ -24,14 +24,4 @@ enum BlockState : uintptr_t {
 };
 
 
-static inline void atomic_store_release(volatile uintptr_t* atomic_ptr, uintptr_t value) {
-    __atomic_store_n(atomic_ptr, value, __ATOMIC_RELEASE);
-}
-
-
-static inline uintptr_t atomic_load_acquire(const volatile uintptr_t* atomic_ptr) {
-    return __atomic_load_n(atomic_ptr, __ATOMIC_ACQUIRE);
-}
-
-
 #endif // GC_MALLOC_BLOCK_HEADER_HPP

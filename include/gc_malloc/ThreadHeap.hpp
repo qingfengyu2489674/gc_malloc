@@ -4,6 +4,7 @@
 
 #include "gc_malloc/SizeClassInfo.hpp"
 #include "gc_malloc/BlockHeader.hpp"
+#include "gc_malloc/atomic_ops.hpp"
 
 class PageGroup;
 

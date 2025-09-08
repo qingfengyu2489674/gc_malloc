@@ -1,6 +1,6 @@
 #include "gc_malloc/ThreadHeap.hpp"
 #include "gc_malloc/CentralHeap.hpp"
-#include "gc_malloc/PageGroup.hpp" // 需要 PageGroup 的完整定义
+#include "gc_malloc/PageGroup.hpp"
 #include <cassert>
 
 
@@ -11,6 +11,8 @@
 // 每个线程都拥有一个指向自己 ThreadHeap 实例的指针。
 // 初始为 nullptr，在第一次分配时创建。
 thread_local ThreadHeap* ThreadHeap::tls_instance_ = nullptr;
+
+
 
 // =====================================================================
 // 构造与析构 (Constructor & Destructor)
